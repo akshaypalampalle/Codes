@@ -1,0 +1,45 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = htmlspecialchars($_POST['customer_name']);
+    $service = htmlspecialchars($_POST['service']);
+    $price = floatval($_POST['price']);
+    $qty = intval($_POST['quantity']);
+    $total = $price * $qty;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Receipt - ServiceHub</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #f7f7f7; }
+        .receipt { background: white; max-width: 600px; margin: auto; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h2, p { text-align: center; }
+        .details { margin-top: 20px; }
+        .details p { font-size: 1.1rem; margin: 10px 0; }
+        .total { font-weight: bold; color: #28a745; font-size: 1.2rem; text-align: center; }
+        button { margin-top: 20px; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; display: block; margin-left: auto; margin-right: auto; }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+
+<div class="receipt">
+    <h2>ServiceHub Receipt</h2>
+    <p>Date: <?php echo date("d-m-Y"); ?></p>
+    <div class="details">
+        <p><strong>Customer:</strong> <?php echo $name; ?></p>
+        <p><strong>Service:</strong> <?php echo $service; ?></p>
+        <p><strong>Unit Price:</strong> ₹<?php echo number_format($price, 2); ?></p>
+        <p><strong>Quantity:</strong> <?php echo $qty; ?></p>
+    </div>
+    <div class="total">
+        Total Amount: ₹<?php echo number_format($total, 2); ?>
+    </div>
+    <button onclick="window.print()">Print Receipt</button>
+</div>
+
+</body>
+</html>

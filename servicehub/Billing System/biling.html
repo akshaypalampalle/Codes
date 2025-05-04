@@ -1,0 +1,117 @@
+<!-- electricianpage.php -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Electrician Services - ServiceHub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Styles same as your original + billing form styles merged */
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
+        header { background-color: #003366; color: white; padding: 20px 30px; position: sticky; top: 0; z-index: 1000; }
+        header .logo { font-size: 2rem; font-weight: bold; }
+        nav ul { display: flex; gap: 25px; justify-content: flex-end; list-style: none; margin: 0; padding: 0; }
+        nav ul li a { color: white; text-decoration: none; padding: 10px 15px; }
+        nav ul li a:hover { background-color: rgba(255,255,255,0.2); border-radius: 4px; }
+
+        .banner img { width: 100%; display: block; }
+
+        .content { padding: 40px; }
+        .section-title { font-size: 2rem; color: #333; margin-bottom: 20px; }
+        .service-list { display: flex; flex-wrap: wrap; gap: 20px; }
+        .service-item { background: white; padding: 20px; border-radius: 5px; box-shadow: 0 0 8px rgba(0,0,0,0.1); flex: 1 1 calc(33% - 20px); }
+
+        .contact-section { background: white; padding: 40px; margin-top: 40px; border-top: 2px solid #ddd; }
+        .contact-form, .billing-form { max-width: 600px; margin: 30px auto; background: #f9f9f9; padding: 20px; border-radius: 5px; box-shadow: 0 0 8px rgba(0,0,0,0.1); }
+        label { font-weight: bold; display: block; margin-top: 10px; }
+        input, select { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; }
+        button { margin-top: 20px; padding: 10px; width: 100%; background: #28a745; color: white; border: none; border-radius: 5px; }
+        button:hover { background: #218838; }
+
+        footer { background: #111; color: white; text-align: center; padding: 20px; }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <nav>
+        <div class="logo">ServiceHub</div>
+        <ul>
+            <li><a href="electricianpage.php">Home</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Banner -->
+<div class="banner">
+    <img src="images/electricalservicesbanner.jpg" alt="Electrical Services Banner">
+</div>
+
+<!-- Service List -->
+<div class="content">
+    <h2 class="section-title">Our Electrical Services We Provide</h2>
+    <div class="service-list">
+        <div class="service-item">
+            <h3>Wiring & Installation</h3>
+            <p>Professional wiring and installations for homes and businesses.</p>
+            <p class="price">₹15,000 - ₹40,000</p>
+        </div>
+        <div class="service-item">
+            <h3>Lighting Solutions</h3>
+            <p>Energy-efficient lighting setups and upgrades.</p>
+            <p class="price">₹7,500 - ₹30,000</p>
+        </div>
+        <div class="service-item">
+            <h3>Electrical Repairs</h3>
+            <p>Reliable repair services for all electrical issues.</p>
+            <p class="price">₹6,000 - ₹20,000</p>
+        </div>
+    </div>
+</div>
+
+<!-- Billing Section -->
+<div class="contact-section">
+    <h2>Generate Bill & Receipt</h2>
+    <div class="billing-form">
+        <form action="receipt.php" method="POST">
+            <label for="customer_name">Customer Name</label>
+            <input type="text" name="customer_name" id="customer_name" required>
+
+            <label for="service">Select Service</label>
+            <select name="service" id="service" onchange="setPrice(this.value)" required>
+                <option value="">Choose a service</option>
+                <option value="Wiring & Installation">Wiring & Installation</option>
+                <option value="Lighting Solutions">Lighting Solutions</option>
+                <option value="Electrical Repairs">Electrical Repairs</option>
+            </select>
+
+            <label for="price">Service Price (₹)</label>
+            <input type="number" name="price" id="price" readonly required>
+
+            <label for="quantity">Quantity</label>
+            <input type="number" name="quantity" id="quantity" value="1" min="1" required>
+
+            <button type="submit">Generate Receipt</button>
+        </form>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 ServiceHub. All Rights Reserved.</p>
+</footer>
+
+<script>
+    function setPrice(service) {
+        const prices = {
+            "Wiring & Installation": 15000,
+            "Lighting Solutions": 7500,
+            "Electrical Repairs": 6000
+        };
+        document.getElementById("price").value = prices[service] || '';
+    }
+</script>
+
+</body>
+</html>

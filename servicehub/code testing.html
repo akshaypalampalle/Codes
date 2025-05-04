@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Hub</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and Typography */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+        }
+
+        /* Header */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        header .logo h1 {
+            font-size: 1.8rem;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: #0077b6;
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        #hero h2 {
+            font-size: 2.5rem;
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background-color: #ff7b5f;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 60px 0;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .service-cards {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .service-card {
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 30%;
+        }
+
+        .service-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .portfolio-gallery {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .portfolio-gallery img {
+            width: 30%;
+            border-radius: 10px;
+        }
+
+        form {
+            display: grid;
+            gap: 10px;
+        }
+
+        form input, form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #0077b6;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="">
+                <h1>Service Hub</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h2>Your Trusted Service Provider</h2>
+            <p>High-quality household services with professional experience.</p>
+            <a href="#services" class="btn-primary">Explore Services</a>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service-cards">
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/200" alt="Electrical Repair">
+                    <h3>Electrical Repair</h3>
+                    <p>Quick and reliable electrical services.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/200" alt="Plumbing">
+                    <h3>Plumbing</h3>
+                    <p>Fast and affordable plumbing solutions.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/200" alt="Cleaning">
+                    <h3>Cleaning</h3>
+                    <p>Comprehensive home cleaning services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="section">
+        <div class="container">
+            <h2>Our Portfolio</h2>
+            <div class="portfolio-gallery">
+                <img src="https://via.placeholder.com/300" alt="Work 1">
+                <img src="https://via.placeholder.com/300" alt="Work 2">
+                <img src="https://via.placeholder.com/300" alt="Work 3">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>We are a professional team providing top-notch household services to ensure your home runs smoothly. Our mission is to deliver efficient and high-quality services that you can rely on.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form action="submit_form.php" method="post">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <button type="submit" class="btn-primary">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Service Hub. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
